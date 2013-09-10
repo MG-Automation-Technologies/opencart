@@ -1,5 +1,5 @@
 <?php echo $header; ?>
-<div class="container">
+<div id="content" class="container">
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
@@ -15,12 +15,14 @@
     <button type="button" class="close" data-dismiss="alert">&times;</button>
   </div>
   <?php } ?>
-  <div class="panel">
+  <div class="panel panel-default">
     <div class="panel-heading">
-      <h1 class="panel-title"><i class="icon-warning-sign icon-large"></i> <?php echo $heading_title; ?></h1>
-      <div class="buttons"><a href="<?php echo $clear; ?>" class="btn btn-danger"><i class="icon-eraser"></i> <?php echo $button_clear; ?></a></div>
+      <div class="pull-right"><a href="<?php echo $clear; ?>" class="btn btn-danger"><i class="icon-eraser"></i> <?php echo $button_clear; ?></a></div>
+      <h1 class="panel-title"><i class="icon-warning-sign"></i> <?php echo $heading_title; ?></h1>
     </div>
-    <textarea wrap="off" rows="15" readonly="readonly" class="form-control"><?php echo $log; ?></textarea>
+    <div class="panel-body">
+      <textarea wrap="off" rows="15" readonly="readonly" class="form-control"><?php echo $log; ?></textarea>
+    </div>
   </div>
 </div>
 <?php echo $footer; ?>

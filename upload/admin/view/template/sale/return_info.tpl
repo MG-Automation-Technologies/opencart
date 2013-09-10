@@ -1,21 +1,21 @@
 <?php echo $header; ?>
-<div class="container">
+<div id="content" class="container">
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
     <?php } ?>
   </ul>
-  <div class="panel">
+  <div class="panel panel-default">
     <div class="panel-heading">
+      <div class="pull-right"><a href="<?php echo $cancel; ?>" class="btn btn-danger"><i class="icon-remove"></i> <?php echo $button_cancel; ?></a></div>
       <h1 class="panel-title"><i class="icon-info-sign"></i> <?php echo $heading_title; ?></h1>
-      <div class="buttons"><a href="<?php echo $cancel; ?>" class="btn"><i class="icon-remove"></i> <?php echo $button_cancel; ?></a></div>
     </div>
-    <ul class="nav nav-tabs">
-      <li class="active"><a href="#tab-return" data-toggle="tab"><?php echo $tab_return; ?></a></li>
-      <li><a href="#tab-product" data-toggle="tab"><?php echo $tab_product; ?></a></li>
-      <li><a href="#tab-history" data-toggle="tab"><?php echo $tab_history; ?></a></li>
-    </ul>
-    <div class="tab-content">
+    <div class="panel-body">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab-return" data-toggle="tab"><?php echo $tab_return; ?></a></li>
+        <li><a href="#tab-product" data-toggle="tab"><?php echo $tab_product; ?></a></li>
+        <li><a href="#tab-history" data-toggle="tab"><?php echo $tab_history; ?></a></li>
+      </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="tab-return">
           <table class="table table-striped table-bordered">
@@ -109,10 +109,11 @@
         </div>
         <div class="tab-pane form-horizontal" id="tab-history">
           <div id="history"></div>
+          <br />
           <div class="form-group">
-            <label class="col-lg-3 control-label" for="input-return-action"><?php echo $entry_return_action; ?></label>
-            <div class="col-lg-9">
-              <select name="return_action_id" id="input-return-action">
+            <label class="col-sm-2 control-label" for="input-return-action"><?php echo $entry_return_action; ?></label>
+            <div class="col-sm-10">
+              <select name="return_action_id" id="input-return-action" class="form-control">
                 <option value="0"></option>
                 <?php foreach ($return_actions as $return_action) { ?>
                 <?php if ($return_action['return_action_id'] == $return_action_id) { ?>
@@ -125,9 +126,9 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label" for="input-return-status"><?php echo $entry_return_status; ?></label>
-            <div class="col-lg-9">
-              <select name="return_status_id" id="input-return-status">
+            <label class="col-sm-2 control-label" for="input-return-status"><?php echo $entry_return_status; ?></label>
+            <div class="col-sm-10">
+              <select name="return_status_id" id="input-return-status" class="form-control">
                 <?php foreach ($return_statuses as $return_status) { ?>
                 <?php if ($return_status['return_status_id'] == $return_status_id) { ?>
                 <option value="<?php echo $return_status['return_status_id']; ?>" selected="selected"><?php echo $return_status['name']; ?></option>
@@ -139,18 +140,20 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label" for="input-notify"><?php echo $entry_notify; ?></label>
-            <div class="col-lg-9">
+            <label class="col-sm-2 control-label" for="input-notify"><?php echo $entry_notify; ?></label>
+            <div class="col-sm-10">
               <input type="checkbox" name="notify" value="1" id="input-notify" />
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label" for="input-comment"><?php echo $entry_comment; ?></label>
-            <div class="col-lg-9">
-              <textarea name="comment" rows="8" class="input-xxlarge"></textarea>
+            <label class="col-sm-2 control-label" for="input-comment"><?php echo $entry_comment; ?></label>
+            <div class="col-sm-10">
+              <textarea name="comment" rows="8" id="input-comment" class="form-control"></textarea>
             </div>
           </div>
-          <button id="button-history" class="btn"><i class="icon-plus-sign"></i> <?php echo $button_add_history; ?></button>
+          <div class="text-right">
+            <button id="button-history" class="btn btn-primary"><i class="icon-plus-sign"></i> <?php echo $button_add_history; ?></button>
+          </div>
         </div>
       </div>
     </div>
